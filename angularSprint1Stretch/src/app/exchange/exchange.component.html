@@ -1,0 +1,38 @@
+<div class="box bg-light w-25 p-5 border border-2 rounded mt-5">
+    <h1 class="mb-4">Currency converter</h1> 
+     <div class="inputs">
+         <div class="input-group mb-3">
+   <label class="input-group-text">Amount</label>
+             <input type="text" id="amount" class="form-control" aria-label="Amount" placeholder="1500" [(ngModel)]="multiplier" >
+ 
+ </div>
+                 <div class="input-group mb-3">
+   <label class="input-group-text" for="inputGroupSelect01">From</label>
+   <select class="form-select" id="inputGroupSelect01"  [(ngModel)]="firstInput">
+    <option  *ngFor="let recipient of conversions | keyvalue">{{recipient.key}}</option>
+   </select>
+ </div>
+                         <div class="input-group mb-3">
+   <label class="input-group-text" for="inputGroupSelect02">To</label>
+   <select [(ngModel)]="secondInput" class="form-select" id="inputGroupSelect02">
+    <option  *ngFor="let recipient of conversions | keyvalue">{{recipient.key}}</option>
+</select>
+ </div>
+       <div class="input-group mb-3">
+   <button class="btn btn-outline-success text-light bg-success" type="button" id="button-addon1" (click)="onSubmit()">Convert</button>
+   <input type="text" class="form-control" placeholder="" aria-label="Convert" id="output" aria-describedby="button-addon1" readonly >
+ </div>
+     </div>
+     <p>{{symbol}} {{totalAmount}}</p>
+   </div>
+ 
+
+
+<!-- <select [(ngModel)]="firstInput">
+    <option  *ngFor="let recipient of conversions | keyvalue">{{recipient.key}}</option>
+</select>
+<select [(ngModel)]="secondInput">
+    <option  *ngFor="let recipient of conversions | keyvalue">{{recipient.key}}</option>
+</select>
+<button (click)="onSubmit()">Submit</button>
+<p>{{symbol}} {{amount}}</p> -->
